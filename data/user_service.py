@@ -3,7 +3,7 @@ from uuid import uuid4
 
 import names
 
-from model import User
+from data.model import User
 
 users = [
     User(id=str(uuid4()), first_name=names.get_first_name(), last_name=names.get_last_name())
