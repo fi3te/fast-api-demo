@@ -5,7 +5,7 @@ from fastapi import APIRouter
 from fastapi import Header, Cookie
 from starlette.responses import FileResponse, Response
 
-router = APIRouter(prefix='/other')
+router = APIRouter(prefix='/other', tags=['Other'])
 
 
 @router.get("/header")

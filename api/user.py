@@ -5,7 +5,7 @@ from fastapi import APIRouter
 from data import user_service
 from data.model import User
 
-router = APIRouter(prefix='/user')
+router = APIRouter(prefix='/user', tags=['User'])
 
 
 @router.get('')
@@ -15,6 +15,16 @@ def get_users(id: Optional[str] = None, first_name: Optional[str] = None,
             if (id is None or user.id == id)
             and (first_name is None or user.first_name == first_name)
             and (last_name is None or user.last_name == last_name)]
+
+
+@router.get('/first')
+def get_first_user() -> User:
+    return get_users()[0]
+
+
+@router.get('/last')
+def get_first_user() -> User:
+    return get_users()[-1]
 
 
 @router.get('/{id}')
